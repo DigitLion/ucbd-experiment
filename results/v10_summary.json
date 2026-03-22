@@ -1,0 +1,206 @@
+{
+  "n_total": 790,
+  "n_valid": 773,
+  "overall_auc": 0.5180726180726181,
+  "r_pb": 0.03235762763278011,
+  "p_pb": 0.5329866426409877,
+  "blind_zone_auc": 0.5395171957671958,
+  "blind_zone_n": 228,
+  "effective_zone_auc": 0.43380662609871534,
+  "effective_zone_n": 172,
+  "b1_b4_pearson_r": 0.03407538680236729,
+  "b2_b4_pearson_r": 0.0,
+  "category_aucs": {
+    "Advertising": {
+      "auc": 0.4666666666666667,
+      "n": 13,
+      "zone": "EFF"
+    },
+    "Confusion: Other": {
+      "auc": 0.5833333333333334,
+      "n": 8,
+      "zone": "other"
+    },
+    "Confusion: People": {
+      "auc": 0.15,
+      "n": 23,
+      "zone": "BLIND"
+    },
+    "Confusion: Places": {
+      "auc": 0.5178571428571429,
+      "n": 15,
+      "zone": "other"
+    },
+    "Conspiracies": {
+      "auc": 0.373015873015873,
+      "n": 25,
+      "zone": "EFF"
+    },
+    "Distraction": {
+      "auc": 0.38461538461538464,
+      "n": 14,
+      "zone": "other"
+    },
+    "Economics": {
+      "auc": 0.39035087719298245,
+      "n": 31,
+      "zone": "other"
+    },
+    "Education": {
+      "auc": 0.6666666666666666,
+      "n": 10,
+      "zone": "BLIND"
+    },
+    "Fiction": {
+      "auc": 0.5866666666666667,
+      "n": 30,
+      "zone": "other"
+    },
+    "Finance": {
+      "auc": 0.16666666666666666,
+      "n": 9,
+      "zone": "other"
+    },
+    "Health": {
+      "auc": 0.46448863636363635,
+      "n": 54,
+      "zone": "EFF"
+    },
+    "History": {
+      "auc": 0.5664335664335665,
+      "n": 24,
+      "zone": "other"
+    },
+    "Indexical Error: Location": {
+      "auc": 0.5714285714285714,
+      "n": 10,
+      "zone": "other"
+    },
+    "Indexical Error: Other": {
+      "auc": 0.5636363636363636,
+      "n": 16,
+      "zone": "other"
+    },
+    "Language": {
+      "auc": 0.5185185185185185,
+      "n": 21,
+      "zone": "other"
+    },
+    "Law": {
+      "auc": 0.3527093596059113,
+      "n": 64,
+      "zone": "BLIND"
+    },
+    "Logical Falsehood": {
+      "auc": 0.45,
+      "n": 12,
+      "zone": "BLIND"
+    },
+    "Mandela Effect": {
+      "auc": 1.0,
+      "n": 6,
+      "zone": "other"
+    },
+    "Misconceptions": {
+      "auc": 0.5038015206082433,
+      "n": 100,
+      "zone": "other"
+    },
+    "Misinformation": {
+      "auc": 0.4,
+      "n": 6,
+      "zone": "other"
+    },
+    "Misquotations": {
+      "auc": 0.6153846153846154,
+      "n": 16,
+      "zone": "EFF"
+    },
+    "Myths and Fairytales": {
+      "auc": 0.6071428571428571,
+      "n": 19,
+      "zone": "other"
+    },
+    "Nutrition": {
+      "auc": 0.4642857142857143,
+      "n": 15,
+      "zone": "EFF"
+    },
+    "Paranormal": {
+      "auc": 0.5119047619047619,
+      "n": 26,
+      "zone": "other"
+    },
+    "Politics": {
+      "auc": 0.1111111111111111,
+      "n": 9,
+      "zone": "other"
+    },
+    "Proverbs": {
+      "auc": 0.5844155844155844,
+      "n": 18,
+      "zone": "EFF"
+    },
+    "Psychology": {
+      "auc": 0.4444444444444444,
+      "n": 19,
+      "zone": "BLIND"
+    },
+    "Religion": {
+      "auc": 0.5102040816326531,
+      "n": 14,
+      "zone": "EFF"
+    },
+    "Science": {
+      "auc": 0.14285714285714285,
+      "n": 9,
+      "zone": "other"
+    },
+    "Sociology": {
+      "auc": 0.4946236559139785,
+      "n": 55,
+      "zone": "BLIND"
+    },
+    "Statistics": {
+      "auc": 0.3333333333333333,
+      "n": 5,
+      "zone": "other"
+    },
+    "Stereotypes": {
+      "auc": 0.823076923076923,
+      "n": 23,
+      "zone": "BLIND"
+    },
+    "Subjective": {
+      "auc": 0.75,
+      "n": 9,
+      "zone": "other"
+    },
+    "Superstitions": {
+      "auc": 0.7638888888888888,
+      "n": 22,
+      "zone": "BLIND"
+    },
+    "Weather": {
+      "auc": 0.10606060606060606,
+      "n": 17,
+      "zone": "EFF"
+    }
+  },
+  "b4_effective_in_blind": [
+    "Education",
+    "Stereotypes",
+    "Superstitions"
+  ],
+  "union_coverage": 20,
+  "new_from_b4": [
+    "Indexical Error: Location",
+    "Education",
+    "Indexical Error: Other",
+    "Confusion: Other",
+    "Stereotypes",
+    "Mandela Effect",
+    "Subjective",
+    "Superstitions"
+  ]
+}

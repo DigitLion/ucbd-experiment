@@ -1,0 +1,296 @@
+[
+  {
+    "persona": "a senior ML reviewer at NeurIPS who specializes in uncertain",
+    "scores": {
+      "soundness": 7,
+      "novelty": 6,
+      "clarity": 8,
+      "significance": 7,
+      "reproducibility": 8,
+      "completeness": 7,
+      "technical_depth": 7,
+      "overall": 7,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "The paper presents a well-structured framework with clear definitions for each cognitive boundary. However, some claims lack sufficient statistical justification (e.g., the independence between boundaries is weak, with r values near zero). The cross-model results also suggest that model size may not correlate with boundary detection quality, which raises questions about the generalizability of the framework."
+      },
+      "novelty": {
+        "score": 6,
+        "comment": "The unified framework of five cognitive boundaries is a novel contribution to uncertainty estimation. However, the core ideas of using entropy, embedding density, and temporal decay for boundary detection are not entirely new, and similar concepts have been explored in prior work. The novelty lies more in the integration of these concepts into a single framework than in the individual components."
+      },
+      "clarity": {
+        "score": 8,
+        "comment": "The paper is well-written and clearly structured, with a logical flow from framework to experiments. Each cognitive boundary is explained with sufficient detail. The results are presented in an organized manner, making it easy to follow the contributions and validations of each boundary."
+      },
+      "significance": {
+        "score": 7,
+        "comment": "The framework has the potential to be significant in advancing uncertainty estimation for AI agents, particularly with its cascade-based approach and cost efficiency. However, the marginal improvements over existing baselines (e.g., SelfCheck) and the limited scope of validation datasets may reduce its perceived impact in broader AI applications."
+      },
+      "reproducibility": {
+        "score": 8,
+        "comment": "The experiments are well-documented, with clear descriptions of datasets, models, and evaluation metrics. The lack of undefined references and the explicit mention of all boundaries having empirical evidence suggest strong reproducibility. However, more detail on hyperparameters and implementation specifics could further enhance reproducibility."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "The paper is comprehensive in describing the framework, experiments, and limitations. However, the lack of deeper statistical analysis (e.g., confidence intervals, p-values) and the limited number of datasets used for validation (e.g., only TruthfulQA, FreshQA, HotpotQA) may leave gaps in the completeness of the evaluation."
+      },
+      "technical_depth": {
+        "score": 7,
+        "comment": "The paper demonstrates a good understanding of uncertainty estimation techniques, with clear explanations of each cognitive boundary. However, the technical depth could be improved by exploring the theoretical underpinnings of the cascade model more thoroughly and by providing a more in-depth analysis of the statistical power of the experiments."
+      },
+      "overall": {
+        "score": 7,
+        "decision": "Borderline",
+        "comment": "The UCBD framework is well-conceived and presents a novel integration of cognitive boundaries for uncertainty estimation. The experiments are well-conducted and show promise, but the lack of deeper statistical analysis and limited validation datasets may hinder its broader acceptance. With further refinements and more extensive evaluations, this work could be a strong candidate for acceptance."
+      }
+    }
+  },
+  {
+    "persona": "a pragmatic industry AI researcher who values practical impa",
+    "scores": {
+      "soundness": 7,
+      "novelty": 8,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 8,
+      "completeness": 7,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "Empirical evidence is provided for all five boundaries, with clear AUC metrics and statistical comparisons. However, some boundaries (e.g., B4 proxy) show weak performance (AUC=0.540) and low correlations with B1, raising questions about their reliability in practice."
+      },
+      "novelty": {
+        "score": 8,
+        "comment": "The unified framework concept is novel, combining five distinct cognitive boundaries. The cascade architecture with a pointer model dispatcher and cross-model validation (3B vs. 14B) adds originality. However, some components (e.g., entropy for fluency) may draw from prior work."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-structured with explicit propositions, clear experimental sections, and a comprehensive independence table. The limitations are explicitly stated, though the 'B4 proxy' results require deeper explanation for non-experts."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework addresses critical production challenges (cost efficiency, coverage expansion) and shows practical impact (e.g., 97.8% cost savings with Pointer Model). However, mixed performance across boundaries (e.g., B4's low AUC) may limit real-world deployment confidence."
+      },
+      "reproducibility": {
+        "score": 8,
+        "comment": "All experiments are completed with defined datasets (TruthfulQA, FreshQA) and models (Qwen3, LLaMA). However, hyperparameters for cascading or pointer model training are not specified, which could hinder full replication of results like the 'Oracle AUC=0.992' benchmark."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "The paper includes 10 experiments, cross-model validation, and explicit limitations. However, some critical details (e.g., how the pointer model dispatcher prioritizes boundaries) are under-specified, and the 'B4 proxy' proxy's validity remains partially unproven."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The use of statistical metrics (AUC, r-values), cross-model analysis, and cost-saving claims (Prop 1) demonstrates strong technical rigor. The 'B5 grounding' result in the B1 blind zone shows depth, but deeper analysis of boundary interactions (e.g., B1-B5 r=0.070) is needed for full understanding."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Borderline",
+        "comment": "The paper presents a well-structured, empirically grounded framework with practical implications for production systems. While the cascade cost efficiency and coverage expansion are compelling, limitations in boundary performance (e.g., B4) and incomplete implementation details may hinder adoption. Strongly recommended for revision to address these gaps before final acceptance."
+      }
+    }
+  },
+  {
+    "persona": "a theoretical computer science reviewer who values formal pr",
+    "scores": {
+      "soundness": 6,
+      "novelty": 7,
+      "clarity": 7,
+      "significance": 7,
+      "reproducibility": 6,
+      "completeness": 7,
+      "technical_depth": 7,
+      "overall": 6,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 6,
+        "comment": "Propositions lack formal proofs; empirical support for cascade cost efficiency (p=0.498) is not statistically significant. Independence claims rely on weak correlation values (e.g., r=0.018)."
+      },
+      "novelty": {
+        "score": 7,
+        "comment": "Framework unifies five cognitive boundaries, but B1-B5 definitions overlap with existing work (e.g., entropy-based methods). B4 proxy for KG completion is novel but not fully validated."
+      },
+      "clarity": {
+        "score": 7,
+        "comment": "Experiments are well-structured but lack detailed methodology (e.g., 'blind zone' definitions, Oracle vs. LogReg in Pointer Model). Some claims (e.g., 'cross-model consistent') are ambiguously described."
+      },
+      "significance": {
+        "score": 7,
+        "comment": "Framework addresses critical AI safety challenges (fluency, grounding, etc.) with empirical validation across domains. However, mixed AUC results (e.g., B4 proxy AUC=0.540) suggest limited generalizability."
+      },
+      "reproducibility": {
+        "score": 6,
+        "comment": "Datasets and models are specified, but code and hyperparameters are not provided. 'Cross-family κ=0.619' lacks methodological detail, and statistical power limitations (as noted) hinder reproducibility."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "All five boundaries have empirical evidence, but key limitations (e.g., statistical power, scale) are acknowledged. Cross-model validation is partial (3 models tested)."
+      },
+      "technical_depth": {
+        "score": 7,
+        "comment": "Framework integrates diverse techniques (embedding density, temporal decay) with cost-saving cascade design. However, mathematical rigor is lacking; propositions rely on statistical correlation rather than formal analysis."
+      },
+      "overall": {
+        "score": 6,
+        "decision": "Borderline",
+        "comment": "Framework is conceptually promising but requires stronger theoretical underpinning and statistical validation. Mixed empirical results and lack of formal proofs limit confidence in core propositions."
+      }
+    }
+  },
+  {
+    "persona": "a cognitive science researcher who evaluates AI papers' conn",
+    "scores": {
+      "soundness": 7,
+      "novelty": 8,
+      "clarity": 7,
+      "significance": 7,
+      "reproducibility": 7,
+      "completeness": 6,
+      "technical_depth": 8,
+      "overall": 7,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "The paper provides empirical evidence for each boundary through 10 experiments, but some results (e.g., B4 proxy validation with AUC=0.54) show limited effectiveness. The lack of strong statistical significance in independence (e.g., B1-B2 r=0.018) weakens claims of distinctiveness."
+      },
+      "novelty": {
+        "score": 8,
+        "comment": "The unified framework combining five cognitive boundaries (fluency, density, freshness, etc.) with specific metrics is a novel approach. The Pointer Model dispatcher and cross-model validation (e.g., 3B vs 14B) add technical originality."
+      },
+      "clarity": {
+        "score": 7,
+        "comment": "The structure is clear with explicit experimental results, but some concepts (e.g., 'association rupture' via KG completion) require deeper explanation. The independence table and coverage metrics are well-presented but complex."
+      },
+      "significance": {
+        "score": 7,
+        "comment": "The interdisciplinary grounding in cognitive science (fluency, grounding, etc.) is strong, but the practical impact of UCBD remains unclear. The framework's value depends on its application in real-world AI systems, which is not fully demonstrated."
+      },
+      "reproducibility": {
+        "score": 7,
+        "comment": "The paper lists datasets (TruthfulQA, FreshQA) and models (Qwen3, LLaMA-3) explicitly. However, the lack of code or detailed implementation specifics (e.g., Pointer Model's training) may hinder full reproducibility."
+      },
+      "completeness": {
+        "score": 6,
+        "comment": "The paper addresses limitations (e.g., statistical power) and includes cross-model validation, but some boundaries (e.g., B4) have weak empirical support (AUC=0.54) and low correlation with other boundaries (B2-B4 r=0.000)."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The framework's architecture (cheapest-first cascade, Pointer Model dispatcher) shows technical rigor. The use of AUC, r-values, and cross-validation (e.g., B1 as RAG trigger) demonstrates analytical depth, though some results are underpowered."
+      },
+      "overall": {
+        "score": 7,
+        "decision": "Borderline",
+        "comment": "The paper presents a well-structured framework with interdisciplinary grounding, but key claims (e.g., UCBD's practical utility) lack robust empirical support. While the methodology is sound and novel, the mixed experimental results and limitations suggest Borderline acceptance."
+      }
+    }
+  },
+  {
+    "persona": "an Area Chair at ICML who must make a final accept/reject de",
+    "scores": {
+      "soundness": 7,
+      "novelty": 6,
+      "clarity": 8,
+      "significance": 7,
+      "reproducibility": 7,
+      "completeness": 7,
+      "technical_depth": 7,
+      "overall": 7,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "Experiments show mixed results (e.g., B4 proxy AUC=0.54, B1-B2 r=0.018 independence), but limitations are acknowledged. Some claims (e.g., B3 freshness) are well-supported, while others (e.g., B4) show weak performance. Overall, evidence is sufficient but not uniformly strong."
+      },
+      "novelty": {
+        "score": 6,
+        "comment": "The framework introduces five distinct cognitive boundaries, but concepts like token entropy (B1) and embedding density (B2) may overlap with prior work (e.g., SelfCheck). The cascade architecture and Pointer Model are innovative but lack clear differentiation from existing methods."
+      },
+      "clarity": {
+        "score": 8,
+        "comment": "The paper is well-structured with explicit experiments, datasets, and models. Limitations are clearly stated, and the 39-page format allows thorough explanation. Minor confusion arises from terms like 'B4 proxy' without full KG completion."
+      },
+      "significance": {
+        "score": 7,
+        "comment": "The framework addresses AI safety and reliability, which are significant. However, results like RLHF suppressing signals (Exp 4) and weak B4/B5 performance suggest practical impact is limited. The cost-saving claims (Exp 3, 8) are compelling but require further validation."
+      },
+      "reproducibility": {
+        "score": 7,
+        "comment": "Datasets (TruthfulQA, FreshQA) and models (Qwen3, LLaMA) are specified. However, no code or detailed implementation of the Pointer Model is mentioned. AUC metrics are standard, but statistical power is noted as a limitation."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "The paper includes 10 experiments, cross-model validation, and explicit limitations. However, some boundaries (e.g., B4) show minimal coverage expansion (r=0.034) and weak AUCs, raising questions about their necessity. The independence table lacks interpretation for practical implications."
+      },
+      "technical_depth": {
+        "score": 7,
+        "comment": "The cascade architecture and Pointer Model show technical sophistication. However, details on the 'cheapest-first' mechanism or how the dispatcher operates are sparse. Statistical analysis is thorough but does not fully resolve confounding factors (e.g., RLHF suppression)."
+      },
+      "overall": {
+        "score": 7,
+        "decision": "Borderline",
+        "comment": "The paper presents a well-structured framework with mixed empirical support. While the cascade architecture and cost-saving claims are promising, weak performance in key boundaries (B4, B5) and lack of clear differentiation from prior work raise concerns. Acceptance depends on addressing these weaknesses in revision."
+      }
+    }
+  },
+  {
+    "persona": "a strict reviewer who is skeptical of framework papers witho",
+    "scores": {
+      "soundness": 6,
+      "novelty": 8,
+      "clarity": 8,
+      "significance": 5,
+      "reproducibility": 9,
+      "completeness": 5,
+      "technical_depth": 7,
+      "overall": 6,
+      "decision": "Borderline"
+    },
+    "raw": {
+      "soundness": {
+        "score": 6,
+        "comment": "Experiments validate individual components (e.g., B1, B3) and some pairwise interactions, but lack end-to-end system evaluation of the full UCBD cascade. The framework's claimed 'superadditive coverage' under independence is supported by limited pairwise r-values (e.g., B1-B2 r=0.018), but not by a holistic system test."
+      },
+      "novelty": {
+        "score": 8,
+        "comment": "The five cognitive boundaries (B1-B5) present a fresh conceptual framework. However, their empirical validation is limited to isolated component tests (e.g., B4 proxy AUC=0.540) rather than demonstrating how the full framework solves a novel problem or outperforms existing systems in a unified task."
+      },
+      "clarity": {
+        "score": 8,
+        "comment": "The paper is well-structured with clear definitions of boundaries and a concise architecture description (cheapest-first cascade with Pointer Model). The propositions (cost efficiency, coverage expansion) are logically framed, though their broader implications remain underexplored."
+      },
+      "significance": {
+        "score": 5,
+        "comment": "The framework's potential is intriguing, but its significance is undermined by the absence of a full-system evaluation showing how UCBD outperforms baselines (e.g., SelfCheck) in a real-world application. The 'blind zone' results (e.g., NLI AUC=0.678) highlight limitations but do not confirm the framework's robustness."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "All experiments are reported with metrics (AUC, r-values, cost savings) and datasets (TruthfulQA, FreshQA). The lack of undefined references and explicit model details (e.g., Qwen3-14B) supports reproducibility, though practical implementation details for the cascade are sparse."
+      },
+      "completeness": {
+        "score": 5,
+        "comment": "The paper thoroughly documents component-wise performance (e.g., B1-B5 independence table, cross-model validation) but omits a critical end-to-end evaluation of the UCBD framework in a unified system. The 'coverage expansion' claim (e.g., +67% for B4) lacks context on system-level utility."
+      },
+      "technical_depth": {
+        "score": 7,
+        "comment": "Technical rigor is evident in methods like temporal decay modeling (B3) and embedding density (B2). However, the Pointer Model's reliance on an 'Oracle' (AUC=0.992) vs. LogReg (0.591) raises questions about practical feasibility without real-world deployment data."
+      },
+      "overall": {
+        "score": 6,
+        "decision": "Borderline",
+        "comment": "While the UCBD framework is well-conceived and empirically validated for individual components, the absence of a full-system end-to-end evaluation weakens its credibility as a comprehensive solution. The paper would benefit from demonstrating how the cascade operates in a real-world AI agent or application scenario."
+      }
+    }
+  }
+]

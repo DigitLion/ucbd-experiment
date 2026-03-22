@@ -1,0 +1,296 @@
+[
+  {
+    "persona": "a senior ML reviewer at NeurIPS who specializes in unce",
+    "scores": {
+      "soundness": 8,
+      "novelty": 9,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 8,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 8,
+        "comment": "The framework is well-structured with a clear taxonomy and formal propositions. The experiments are comprehensive and validate the boundaries, though some limitations like proxy validation for B4 and small sample sizes may affect generalizability."
+      },
+      "novelty": {
+        "score": 9,
+        "comment": "The paper introduces a novel unified taxonomy for cognitive boundaries, which is a significant contribution. The cheapest-first cascade with formal cost guarantees and the finding about RLHF suppressing uncertainty are particularly noteworthy and counter-intuitive."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-written and clearly explains the framework, propositions, and experimental results. The structure is logical, and the independence table and pairwise correlations are well-presented."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has implications for AI safety and uncertainty estimation, particularly with the finding that token-level uncertainty is robust to RLHF. The system-level cascade demo shows practical benefits, enhancing the paper's impact."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, model IDs, datasets, and code availability. The lack of proprietary APIs and cloud services is a major plus for reproducibility."
+      },
+      "completeness": {
+        "score": 8,
+        "comment": "The paper is comprehensive with 10 experiments, three models, three datasets, and nine explicit limitations. However, the statistical power analysis suggests that some results may require larger sample sizes for stronger conclusions."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The paper demonstrates strong technical depth with formal propositions, statistical methods, and a detailed system-level cascade demo. The use of neuroscience-inspired mechanisms adds interdisciplinary rigor, though the proxy for B4 may limit depth in that area."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The paper presents a robust and novel framework for cognitive boundary detection with strong empirical validation and reproducibility. While there are limitations in statistical power and proxy validation, the contributions are significant and align well with top ML venue standards."
+      }
+    }
+  },
+  {
+    "persona": "a pragmatic industry researcher who values practical de",
+    "scores": {
+      "soundness": 8,
+      "novelty": 9,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 7,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 8,
+        "comment": "The framework is theoretically grounded in neuroscience and has formal propositions with proofs. The experiments are well-designed, and the statistical methods are appropriate. However, some limitations like proxy validation for B4 and small sample sizes may affect generalizability."
+      },
+      "novelty": {
+        "score": 9,
+        "comment": "The unified taxonomy of cognitive boundaries is a significant novelty, especially given the formal cascade structure and the counter-intuitive finding about RLHF suppressing uncertainty. The framework's architecture and the independence of boundaries are also novel contributions."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-structured, with clear sections and a logical flow. The framework, experiments, and results are described in a comprehensible manner. The use of neuroscience analogies adds clarity to the cognitive boundaries."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has clear implications for AI safety and practical deployment. The cascade's cost efficiency and ability to improve F1 scores are significant contributions. However, the real-world impact and scalability of the framework require further exploration."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, model IDs, datasets, and code availability. The lack of proprietary APIs and clear random seed usage enhances reproducibility."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "The paper covers all five cognitive boundaries with empirical evidence and includes a system-level cascade demonstration. However, some limitations like the proxy nature of B4 and limited model scale may reduce completeness in certain contexts."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The paper demonstrates strong technical depth with formal propositions, statistical rigor, and detailed experiments. The use of MLX entropy, embedding k-NN, and NLI verification shows a solid understanding of the technical challenges."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The paper presents a novel, well-structured framework with strong theoretical and empirical support. While there are some limitations in statistical power and proxy validation, the framework's cost efficiency, reproducibility, and practical implications make it a strong candidate for acceptance in a top ML venue."
+      }
+    }
+  },
+  {
+    "persona": "a theoretical ML reviewer who values formal analysis. Y",
+    "scores": {
+      "soundness": 7,
+      "novelty": 8,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 7,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "The formal propositions are mathematically rigorous, with clear proofs for cost efficiency and coverage. However, the statistical power of the experiments is limited (e.g., Cohen's d=0.073 with n≈2900 needed), which may affect the reliability of the empirical results."
+      },
+      "novelty": {
+        "score": 8,
+        "comment": "The unified taxonomy of cognitive boundaries and the cheapest-first cascade architecture are highly novel. The framework provides a comprehensive and structured approach to knowledge gap detection, with implications for AI safety and uncertainty quantification."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-structured, with clear definitions of the cognitive boundaries, the cascade mechanism, and the experimental setup. The use of neuroscience analogies and formal propositions enhances clarity."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has significant implications for AI safety, particularly in understanding and quantifying uncertainty. The finding that RLHF suppresses uncertainty signals is counter-intuitive and important for the field."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, model IDs, datasets, and code availability. This greatly enhances the credibility of the results."
+      },
+      "completeness": {
+        "score": 7,
+        "comment": "While the paper covers five cognitive boundaries and includes a system-level cascade demonstration, some limitations (e.g., proxy validation for B4, small per-category samples) suggest that the framework is not fully validated at scale or in all aspects."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The paper demonstrates strong technical depth with formal propositions, statistical methods, and a detailed cascade architecture. However, the reliance on proxies (e.g., B4) and limited model scales may reduce the generalizability of the findings."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The paper presents a novel, well-structured framework with strong theoretical underpinnings and empirical validation. While there are limitations in statistical power and proxy-based validation, the work is sufficiently rigorous and impactful for acceptance in a top ML venue."
+      }
+    }
+  },
+  {
+    "persona": "a cognitive science researcher reviewing for an interdi",
+    "scores": {
+      "soundness": 8,
+      "novelty": 9,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 8,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 8,
+        "comment": "The paper presents a well-structured framework with formal propositions and empirical validation across multiple models and datasets. The statistical methods are rigorous, including bootstrapping, hypothesis testing, and reproducibility details. However, some limitations, such as proxy-based validation for B4 and small per-category samples, may affect generalizability."
+      },
+      "novelty": {
+        "score": 9,
+        "comment": "The unified taxonomy of cognitive boundaries and the cheapest-first cascade architecture represent a significant conceptual innovation. The framework bridges neuroscience mechanisms with AI uncertainty detection, offering a novel perspective. The finding that RLHF suppresses uncertainty signals is counterintuitive and impactful."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-organized with a clear framework, detailed methodology, and comprehensive results. The mapping of cognitive boundaries to neuroscience concepts is explained clearly. The system-level cascade demo and pairwise independence table enhance interpretability."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has broad implications for AI safety, uncertainty quantification, and knowledge-aware systems. The empirical validation across models and datasets strengthens its relevance. However, the scope of the experiments is limited to specific benchmarks, which may restrict broader applicability."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, model versions, datasets, and code availability. All experiments can be replicated without proprietary APIs or closed-source models, which is a major strength."
+      },
+      "completeness": {
+        "score": 8,
+        "comment": "The paper is comprehensive, covering a unified taxonomy, formal propositions, extensive experiments, and limitations. However, the statistical power analysis indicates that larger sample sizes would be needed for stronger conclusions, particularly for smaller effect sizes."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The paper demonstrates strong technical depth with formal proofs, empirical validation, and integration of neuroscience concepts. The use of multiple statistical tests and cross-model comparisons adds to the technical rigor. However, the proxy-based validation for B4 may limit the depth of the KG completion analysis."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The paper presents a novel, well-structured framework with strong empirical validation and interdisciplinary grounding. It addresses important challenges in AI uncertainty detection and offers a practical cascade architecture. While there are limitations in statistical power and proxy-based validation, the work is sufficiently rigorous and impactful for acceptance in a top ML venue."
+      }
+    }
+  },
+  {
+    "persona": "an Area Chair at ICML making a final decision. You weig",
+    "scores": {
+      "soundness": 8,
+      "novelty": 9,
+      "clarity": 9,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 8,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 8,
+        "comment": "The framework is theoretically grounded in neuroscience and supported by 10 empirical experiments. The formal propositions are well-defined and proved, though some statistical power concerns (e.g., small per-category samples) may affect robustness."
+      },
+      "novelty": {
+        "score": 9,
+        "comment": "The unified taxonomy of cognitive boundaries is a significant contribution, particularly the first-of-its-kind cascade architecture with formal cost guarantees. The finding that RLHF suppresses uncertainty signals is counter-intuitive and impactful."
+      },
+      "clarity": {
+        "score": 9,
+        "comment": "The paper is well-structured with clear definitions of boundaries, formal propositions, and experimental results. The cascade logic and pairwise independence table are presented with clarity."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has strong implications for AI safety and uncertainty detection. The system-level cascade demo showing 18% F1 improvement is a compelling validation of the framework's practical value."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, public models, datasets, and code availability. No proprietary APIs or closed-source models are required."
+      },
+      "completeness": {
+        "score": 8,
+        "comment": "The paper is comprehensive with 10 experiments, 3 models, 3 datasets, and 9 explicit limitations. All five boundaries are validated, though B4 relies on a proxy rather than full KG."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The paper demonstrates strong technical rigor with formal propositions, statistical methods, and cross-model validation. The independence table and cost analysis show depth in theoretical and empirical analysis."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The UCBD framework presents a novel, well-validated, and theoretically grounded approach to cognitive boundary detection in AI agents. Despite some limitations in statistical power and proxy validation, the paper meets the standards of a top ML venue and makes a significant contribution to the field."
+      }
+    }
+  },
+  {
+    "persona": "a strict reviewer focused on experimental methodology. ",
+    "scores": {
+      "soundness": 7,
+      "novelty": 9,
+      "clarity": 8,
+      "significance": 8,
+      "reproducibility": 9,
+      "completeness": 8,
+      "technical_depth": 8,
+      "overall": 8,
+      "decision": "Accept"
+    },
+    "raw": {
+      "soundness": {
+        "score": 7,
+        "comment": "The paper presents a well-structured framework with formal propositions and empirical validation. However, some statistical power concerns exist (e.g., small effect sizes like d=0.073 requiring n≈2900). The use of bootstrapping and BH correction is appropriate, but the lack of p-values for some claims weakens the soundness slightly."
+      },
+      "novelty": {
+        "score": 9,
+        "comment": "The unified taxonomy of cognitive boundaries and the cheapest-first cascade with formal cost guarantees represent a significant conceptual contribution. The finding that RLHF suppresses uncertainty signals is counterintuitive and impactful, adding strong novelty to the field."
+      },
+      "clarity": {
+        "score": 8,
+        "comment": "The framework and methodology are clearly explained, with a logical flow from abstract to framework to experiments. The use of neuroscience analogies is helpful, though some readers may find the mapping between cognitive boundaries and brain regions somewhat speculative."
+      },
+      "significance": {
+        "score": 8,
+        "comment": "The framework has clear implications for AI safety and uncertainty-aware systems. The system-level cascade demo showing 18% F1 improvement over single-boundary methods is compelling. However, the broader impact is somewhat constrained by the limited model scale (3B-14B) and reliance on proxies for some boundaries."
+      },
+      "reproducibility": {
+        "score": 9,
+        "comment": "The paper provides detailed reproducibility information, including hardware, software, and data sources. All models and datasets are public, and code is available on GitHub. The use of fixed random seeds and greedy decoding ensures consistent results across runs."
+      },
+      "completeness": {
+        "score": 8,
+        "comment": "The paper includes 10 experiments across three datasets and three models, validating all five cognitive boundaries. The explicit listing of nine limitations is commendable. However, the lack of semantic entropy comparisons and some proxy validation (e.g., B4) leaves room for further exploration."
+      },
+      "technical_depth": {
+        "score": 8,
+        "comment": "The formal propositions (Propositions 1 and 2) are mathematically sound and well-proven. The technical approach combines neuroscience-informed mechanisms with ML techniques (embedding k-NN, NLI verification). However, deeper analysis of the proxy methods (e.g., B4) would strengthen the technical rigor."
+      },
+      "overall": {
+        "score": 8,
+        "decision": "Accept",
+        "comment": "The paper presents a novel, well-structured framework with strong empirical validation and clear implications for AI safety. While there are minor concerns about statistical power and proxy validation, the contributions are substantial and meet the standards of a top ML venue. The paper is well-written, reproducible, and offers a valuable new perspective on cognitive boundary detection for AI agents."
+      }
+    }
+  }
+]

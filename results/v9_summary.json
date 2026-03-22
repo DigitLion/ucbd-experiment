@@ -1,0 +1,15 @@
+{
+  "n": 100,
+  "f1_no_rag": 0.1233,
+  "f1_with_rag": 0.783,
+  "rag_gap": 0.6597,
+  "mean_entropy": 0.1468,
+  "entropy_rag_pearson_r": 0.0809,
+  "b1_auc_rag_helps": 0.4851,
+  "best_routing": {
+    "percentile": 20,
+    "f1": 0.2654,
+    "cost": 0.19,
+    "recovery": 0.2154
+  }
+}
