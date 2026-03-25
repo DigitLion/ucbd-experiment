@@ -1,40 +1,84 @@
-# UCBD Experiment
+# The Alignment Tax: Response Homogenization in Aligned LLMs
 
-Experimental validation code and data for the paper:
+Experiment code for the paper:
 
-**"Unified Cognitive Boundary Detection for AI Agents: A Five-Boundary Framework with Cascaded Meta-Cognitive Dispatch"**
+**"The Alignment Tax: Response Homogenization in Aligned LLMs and Its Implications for Uncertainty Estimation"**
+
+Mingyi Liu | [arXiv](https://arxiv.org/abs/2603.xxxxx) | cs.LG
+
+## Overview
+
+RLHF-aligned language models exhibit **response homogenization**: on TruthfulQA (n=790), 40-79% of questions produce a single semantic cluster across 10 i.i.d. samples. On affected questions, sampling-based uncertainty methods have zero discriminative power (AUROC=0.500), while free token entropy retains signal (0.603).
 
 ## Experiments
 
-| Experiment | Script | Description |
-|---|---|---|
-| V1-1A | `run_v1a_fluency.py` | Fluency boundary effectiveness and domain specificity |
-| V1-1B | `run_v1b_density.py` | Density boundary independence and complementarity |
-| V2 | `run_v2_cascade.py` | Cascade vs. parallel detection Pareto efficiency |
-| V4 | `run_v4_cross_model.py` | Cross-model domain-specificity validation |
+22 experiments across 5 benchmarks, 4 model families, and 3 model scales (3B-14B).
 
-## Analysis
+### Core Experiments (Boundary Detection)
+
+| # | Script | Description |
+|---|--------|-------------|
+| 1 | `run_v1a_fluency.py` | B1 (Fluency) boundary detection — domain-specific entropy signal |
+| 2 | `run_v1b_density.py` | B2 (Density) boundary detection — embedding clustering |
+| 3 | `run_v2_cascade.py` | Cascade vs. parallel detection — Pareto efficiency |
+| 4 | `run_v4_cross_model.py` | Cross-model validation (Qwen3-14B/4B, LLaMA-3.2-3B) |
+
+### Alignment Tax Experiments
+
+| # | Script | Description |
+|---|--------|-------------|
+| 5-16 | `logprobs_entropy_experiment.py` | Token entropy via API logprobs (GPT-4o-mini, DeepSeek, Gemini, Together AI) |
+| 17 | `run_exp21_200tok.py` | Max-tokens sensitivity (200 tokens, 200 questions) |
+| 18 | `exp19_quant_scr.py` | Quantization sensitivity (Q4_K_M vs Q8_0) |
+| 19 | `exp20_logtoku_headtohead.py` | LogTokU head-to-head (entropy vs neg-log-prob AUROC) |
+| 20 | `run_exp22_webq.py` | Cross-dataset validation (WebQuestions, 200 questions) |
+| 21 | `download_triviaqa.py` | TriviaQA dataset preparation |
+
+### Utilities
 
 | Script | Description |
-|---|---|
-| `analyze_v1a.py` | Fluency boundary analysis and plots |
-| `analyze_v1a_supplement.py` | Domain-level decomposition and grouped ROC |
-| `analyze_v1b_complement.py` | B1-B2 complementarity and oracle routing |
-| `analyze_v4_cross_model.py` | Cross-model comparison and scale effect |
+|--------|-------------|
+| `cluster_analysis.py` | Agglomerative clustering with cosine distance for SCR computation |
+| `analyze_v1a.py` | B1 analysis and plots |
+| `analyze_v1a_supplement.py` | Domain-level decomposition |
+| `analyze_v1b_complement.py` | B1-B2 complementarity analysis |
+| `analyze_v4_cross_model.py` | Cross-model comparison |
 
-## Dataset
+## Datasets
 
-- TruthfulQA (790 questions, 38 categories) — `data/TruthfulQA.csv`
+| File | Description |
+|------|-------------|
+| `data/TruthfulQA.csv` | TruthfulQA (790 questions, 38 categories) |
+| `data/tqa_200q.json` | TruthfulQA 200-question subset |
+| `data/webq_200q.json` | WebQuestions 200-question subset |
+| `data/hotpot_100.json` | HotpotQA 100-question subset |
 
-## Key Findings
+## Key Results
 
-- B1 (Fluency) is domain-specific: AUC=0.623 in effective domains, inverted in blind zones
-- B1 and B2 are nearly orthogonal: Pearson r=0.018
-- Cascade detection Pareto-dominates parallel, saving 57.4% computation
-- Counter-intuitive scale effect: smaller models have stronger B1 signals (3B AUC=0.676 vs 14B AUC=0.537)
+- **Response Homogenization**: 40-79% SCR on TruthfulQA across model families
+- **Alignment Tax**: Sampling AUROC collapses to 0.500 on homogenized questions
+- **Token Entropy**: Retains signal (AUROC 0.603-0.724) — free, single-pass
+- **Causal Evidence**: Base 1.0% SCR vs Instruct 28.5% (p < 10^-6); DPO is the cause, not SFT
+- **Cascade (UCBD)**: 84.4% -> 93.2% accuracy at 50% coverage; 57% cost savings
 
 ## Environment
 
 - Apple M4 Pro, macOS
-- Qwen3-14B-4bit, Qwen3-4B, LLaMA-3.2-3B (MLX local inference)
-- Qwen3-Embedding (Ollama, 4096 dimensions)
+- Local models: Mistral-7B-Instruct, Qwen3-14B/4B, LLaMA-3.2-3B (Ollama/MLX)
+- Embeddings: Qwen3-Embedding (Ollama), text-embedding-3-small (OpenAI)
+- APIs: OpenAI, DeepSeek, Google Gemini, Together AI
+
+## Citation
+
+```bibtex
+@article{liu2026alignmenttax,
+  title={The Alignment Tax: Response Homogenization in Aligned LLMs and Its Implications for Uncertainty Estimation},
+  author={Liu, Mingyi},
+  journal={arXiv preprint arXiv:2603.xxxxx},
+  year={2026}
+}
+```
+
+## License
+
+MIT
