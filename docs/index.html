@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alignment Tax</title>
+<style>
+  :root { --accent: #2563eb; --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header { text-align: center; padding: 4rem 0 2rem; }
+  h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { font-size: 1.1rem; color: var(--muted); max-width: 640px; margin: 0 auto 1.5rem; }
+  .author { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  .badges { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: 8px; background: var(--card); color: var(--text); text-decoration: none; font-size: 0.9rem; border: 1px solid #334155; transition: border-color 0.2s; }
+  .badge:hover { border-color: var(--accent); }
+  .badge svg { width: 18px; height: 18px; }
+  section { margin-bottom: 3rem; }
+  h2 { font-size: 1.4rem; margin-bottom: 1rem; color: #93c5fd; }
+  .card { background: var(--card); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid #334155; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .stat { text-align: center; padding: 1.25rem; }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #60a5fa; }
+  .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+  .finding { padding: 1rem 1.25rem; border-left: 3px solid var(--accent); margin-bottom: 0.75rem; background: rgba(37, 99, 235, 0.08); border-radius: 0 8px 8px 0; }
+  .finding strong { color: #93c5fd; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid #334155; }
+  th { color: #93c5fd; font-weight: 600; }
+  code { background: #334155; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+  .bibtex { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; color: var(--muted); overflow-x: auto; }
+  footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid #1e293b; }
+  @media (max-width: 600px) { h1 { font-size: 1.8rem; } .stat-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>The Alignment Tax</h1>
+    <p class="subtitle">Response Homogenization in Aligned LLMs and Its Implications for Uncertainty Estimation</p>
+    <p class="author">Mingyi Liu &middot; Independent Researcher</p>
+    <div class="badges">
+      <a class="badge" href="https://arxiv.org/abs/2603.24124">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        arXiv 2603.24124
+      </a>
+      <a class="badge" href="https://github.com/DigitLion/ucbd-experiment">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Code
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <div class="stat-grid">
+      <div class="card stat">
+        <div class="stat-value">40-79%</div>
+        <div class="stat-label">Questions with single semantic cluster</div>
+      </div>
+      <div class="card stat">
+        <div class="stat-value">25</div>
+        <div class="stat-label">Experiments across 5 benchmarks</div>
+      </div>
+      <div class="card stat">
+        <div class="stat-value">66%</div>
+        <div class="stat-label">Token entropy retained after DPO</div>
+      </div>
+      <div class="card stat">
+        <div class="stat-value">93.2%</div>
+        <div class="stat-label">GSM8K accuracy at 50% coverage</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Abstract</h2>
+    <div class="card">
+      <p>RLHF-aligned language models exhibit <strong>response homogenization</strong>: on TruthfulQA (n=790), 40&ndash;79% of questions produce a single semantic cluster across 10 i.i.d. samples. On affected questions, sampling-based uncertainty methods have zero discriminative power (AUROC=0.500), while free token entropy retains signal (0.603). This <strong>alignment tax</strong> is task-dependent, caused by DPO (not SFT), recipe-dependent (0.5%&ndash;28.5% SCR across families), and generalizes across benchmarks. Stage-wise token entropy measurement reveals the mechanistic decoupling: DPO retains 66% of per-token entropy while collapsing response diversity. Motivated by this diagnosis, we explore a cheapest-first cascade over orthogonal uncertainty signals, achieving 93.2% accuracy on GSM8K at 50% coverage with 57% cost savings.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Findings</h2>
+    <div class="finding"><strong>The Alignment Tax:</strong> Aligned models collapse responses into single semantic clusters &mdash; 40% (Jaccard) to 79% (embedding) of TruthfulQA questions produce identical answers across 10 samples. Sampling-based UQ has zero signal on these questions.</div>
+    <div class="finding"><strong>DPO is the Driver:</strong> Training stage ablation on two independent chains (Zephyr, Tulu-3) shows SFT preserves base diversity (&le;1.5% SCR) while DPO causes collapse. Severity is recipe-dependent (Zephyr 4.0% vs Tulu-3 0.5%).</div>
+    <div class="finding"><strong>Token&ndash;Response Decoupling:</strong> DPO compresses per-token entropy by only 34% (1.175&rarr;0.776 nats) while collapsing response diversity &mdash; explaining why B1 token entropy retains discriminative power where sampling fails.</div>
+    <div class="finding"><strong>Task-Dependent:</strong> Cohen's d = 0.07 on factual QA vs 0.81 on math reasoning &mdash; a 10&times; gap in effect size that demands multi-boundary design.</div>
+  </section>
+
+  <section>
+    <h2>Alignment Tax Across Families</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>Model</th><th>SCR</th><th>Mean Clusters</th><th>Mean SE</th></tr></thead>
+        <tbody>
+          <tr><td>Qwen3-14B-Instruct</td><td>28.5%</td><td>3.58</td><td>0.832</td></tr>
+          <tr><td>LLaMA-3.2-3B-Instruct</td><td>5.5%</td><td>6.42</td><td>1.537</td></tr>
+          <tr><td>Zephyr-7B (SFT+DPO)</td><td>4.0%</td><td>8.01</td><td>1.897</td></tr>
+          <tr><td>Mistral-7B-Instruct</td><td>1.0%</td><td>8.42</td><td>2.023</td></tr>
+          <tr><td>Tulu-3-8B (SFT+DPO+RLVR)</td><td>0.5%</td><td>9.31</td><td>2.174</td></tr>
+          <tr><td><em>Qwen3-14B-Base</em></td><td><em>1.0%</em></td><td><em>9.26</em></td><td><em>2.158</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <div class="card">
+      <div class="bibtex">@article{liu2026alignmenttax,
+  title={The Alignment Tax: Response Homogenization in Aligned LLMs
+         and Its Implications for Uncertainty Estimation},
+  author={Liu, Mingyi},
+  journal={arXiv preprint arXiv:2603.24124},
+  year={2026}
+}</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Mingyi Liu &middot; <a href="https://arxiv.org/abs/2603.24124" style="color:var(--accent)">Paper</a> &middot; <a href="https://github.com/DigitLion/ucbd-experiment" style="color:var(--accent)">Code</a>
+  </footer>
+</div>
+</body>
+</html>
