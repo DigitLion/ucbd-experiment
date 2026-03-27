@@ -1,0 +1,13 @@
+Paperreview.ai Submission Tokens
+=================================
+
+v7 (2026-03-27): wr3uGqmG-fw0Ns5Jx6XFIqdNXFSnWUNnfJKnTon8P68
+  Changes: SINdex head-to-head (Exp 27), NLI validation (Exp 28),
+           decoding protocol note, Jaccard threshold motivation,
+           refusal filtering note, enhanced reproducibility statement
+
+v6 (2026-03-27): n0y97IRfAlE1HNpDILqMKShd0dYMOWSRBJq0jLqPlgM
+  Changes: SCR primary definition standardized (Jaccard tau=0.4)
+
+v5 (2026-03-27): BvSOrWHAB2MdcyWob5o6-HgO0tW72QvtH1hu6DFmurU
+  Changes: HALT/HalluShift comparison added to Related Work
